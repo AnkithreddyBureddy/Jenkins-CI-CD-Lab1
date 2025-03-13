@@ -10,9 +10,9 @@ pipeline {
         stage('Setup') {
             steps {
                 bat '''
-                    python -m venv venv
+                    "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe" -m venv venv
                     venv\\Scripts\\activate
-                    pip install -r requirements.txt
+                    "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts\\pip.exe" install -r requirements.txt
                 '''
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 bat '''
                     venv\\Scripts\\activate
-                    python -m unittest test_todo.py
+                    "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe" -m unittest test_todo.py
                 '''
             }
         }
