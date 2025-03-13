@@ -9,17 +9,24 @@ pipeline {
         }
         stage('Setup') {
             steps {
-                sh 'python -m venv venv && source venv/bin/activate && pip install -r requirements.txt'
+                bat '''
+                    python -m venv venv
+                    venv\\Scripts\\activate
+                    pip install -r requirements.txt
+                '''
             }
         }
         stage('Test') {
             steps {
-                sh 'source venv/bin/activate && python -m unittest test_todo.py'
+                bat '''
+                    venv\\Scripts\\activate
+                    python -m unittest test_todo.py
+                '''
             }
         }
         stage('Notify') {
             steps {
-                mail to: 'your-email@example.com',
+                mail to: 'Abureddy1900@conestogac.on.ca',
                      subject: 'Jenkins Build Notification',
                      body: 'Build completed successfully.'
             }
