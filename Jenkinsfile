@@ -11,7 +11,7 @@ pipeline {
             steps {
                 bat '''
                     "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe" -m venv venv
-                    venv\\Scripts\\activate
+                    call venv\\Scripts\\activate.bat
                     "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts\\pip.exe" install -r requirements.txt
                 '''
             }
@@ -19,14 +19,14 @@ pipeline {
         stage('Test') {
             steps {
                 bat '''
-                    venv\\Scripts\\activate
+                    call venv\\Scripts\\activate.bat
                     "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe" -m unittest test_todo.py
                 '''
             }
         }
         stage('Notify') {
             steps {
-                mail to: 'Abureddy1900@conestogac.on.ca',
+                mail to: 'your-email@example.com',
                      subject: 'Jenkins Build Notification',
                      body: 'Build completed successfully.'
             }
