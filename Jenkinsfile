@@ -8,14 +8,15 @@ pipeline {
             }
         }
         stage('Setup') {
-            steps {
-                bat '''
-                    "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe" -m venv venv
-                    call venv\\Scripts\\activate.bat
-                    "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts\\pip.exe" install -r requirements.txt
-                '''
-            }
-        }
+    steps {
+        bat '''
+            call "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe" -m venv venv
+            call venv\\Scripts\\activate.bat
+            call "C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts\\pip.exe" install -r requirements.txt
+        '''
+    }
+}
+
         stage('Test') {
             steps {
                 bat '''
