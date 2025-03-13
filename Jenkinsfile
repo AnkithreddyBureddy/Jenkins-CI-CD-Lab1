@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Notify') {
             steps {
-                mail to: 'your-email@example.com',
+                mail to: 'Abureddy1900@conestogac.on.ca',
                      subject: 'Jenkins Build Notification',
                      body: 'Build completed successfully.'
             }
